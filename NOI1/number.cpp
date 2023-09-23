@@ -22,6 +22,5 @@ int main () {
         cout << h + s + d + e;
     }
 
-
     return 0;
 }
