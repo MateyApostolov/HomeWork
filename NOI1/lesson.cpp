@@ -14,7 +14,7 @@ int main () {
     }
     cout << "Week " << w;
     int d;
-    if (o > -1 && o <= 6) {
+    if (o >= 1 && o <= 6) {
         cout << " Monday";
     }
     if (o > 6 && o <= 12) {
@@ -26,7 +26,7 @@ int main () {
     if (o > 18 && o <= 24) {
         cout << " Thursday";
     }
-    if (o > 24 && o <= 30) {
+    if ((o > 24 && o <= 30) || o == 0) {
         cout << " Friday";
     }
 
