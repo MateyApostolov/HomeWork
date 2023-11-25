@@ -24,9 +24,11 @@ int dost2(int w){
 int main () {
     int a, b;
     cin >> a >> b;
+    cout << dost1(a) << " " << dost1(b) << " "<< dost2(a) << " "<< dost2(b) << endl;
     int st = min(dost1(a), dost2(a)) + min(dost1(b), dost2(b));
-    cout << st / 100 << "." << st % 100;
+    cout << st / 100 << ".";
     if(st % 100 < 10) cout << "0";
+    cout << st % 100;
 
     return 0;
 }
