@@ -7,10 +7,7 @@ int main () {
     while (kp < n) {
         brch++;
         kp += min(k, kp);
-        cout << kp << endl;
     }
     cout << brch;
-
-
     return 0;
 }
