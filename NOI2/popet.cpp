@@ -16,7 +16,7 @@ int main () {
             wn = false;
             continue;
         }
-        cout << (os * 10 + (c - '0')) / 2 << endl;
+        cout << (os * 10 + (c - '0')) / 2;
         os = (os * 10 + (c - '0')) % 2;
         wn = false;
     }

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 using namespace std;
 
 int sumd(int n) {
@@ -11,12 +12,24 @@ int sumd(int n) {
 }
 
 int main () {
-    int a, b, k, sum = 0, ngsum;
+    ios_base::sync_with_stdio(0);
+    cin.tie();
+    cout.tie();
+    int a, b, k, sum = 0, ngsum, h, r;
     cin >> a >> b >> k;
-    for(int i = a; i < a + k; i++) sum += sumd(i);
+    queue<int> Q;
+    for(int i = a; i < a + k; i++) {
+        h = sumd(i);
+        sum += h;
+        Q.push(h);
+    }
     ngsum = sum;
     for(int i = a + 1; i <= b - k + 1; i++) {
-        sum = sum - sumd(i - 1) + sumd(i + k - 1);
+        h = sumd(i + k - 1);
+        Q.push(h);
+        r = Q.front();
+        Q.pop();
+        sum = sum - r + h;
         if(ngsum < sum) ngsum = sum;
     }
     cout << ngsum;
