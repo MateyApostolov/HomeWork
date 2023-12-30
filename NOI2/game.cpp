@@ -9,7 +9,7 @@ int main () {
     if(c % 2 == 0) sum += c;
     nbc = 1;
     r = abs(m - c);
-    while(sum <= k && br <= 200) {
+    while(sum <= k && br < 200) {
         cin >> c;
         br++;
         if(c % 2 == 0) sum += c;
