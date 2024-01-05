@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <algorithm>
 using namespace std;
 
 bool pal(long long n) {
@@ -7,8 +9,25 @@ bool pal(long long n) {
         h = h * 10 + n % 10;
         n /= 10;
     }
-    if(h == h1) return true;
-    else return false;
+    return h == h1;
+}
+
+bool pal1(long long n) {
+    string s = to_string(n);
+    bool t = true;
+    int m = s.size();
+    for (int i = 0; i < m/2; i++)
+        if (s[i] != s[m - i - 1]) {
+            t = false;
+            break;
+        }
+    return t;
+}
+
+bool pal2(long long n) {
+    string s1 = to_string(n), s2 = s1;
+    reverse(s1.begin(), s1.end());
+    return s1 == s2;
 }
 
 
@@ -22,7 +41,7 @@ int main () {
         ngr = 0;
         brpal = 0;
         for(int i2 = a; i2 <= b; i2 += c) {
-            if(pal(i2)) {
+            if(pal1(i2)) {
                 brpal++;
                 if(prpal != 0) {
                     r = i2 - prpal - 1;

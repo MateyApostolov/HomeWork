@@ -9,7 +9,6 @@ int main () {
         sek += d - pr;
         if(sek % (r + g) < r) sek += r - sek % (r + g);
         pr = d;
-        cout << sek << endl;
     }
     sek += l - pr;
     cout << sek;
