@@ -10,6 +10,7 @@ int main () {
         vector<long long> h;
         for(int j = 0; j < s.size() - 1; j++) h.push_back(s[j] +s[j + 1]);
         s = h;
+
     }
     cout << s[0];
 
