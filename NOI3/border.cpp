@@ -14,7 +14,7 @@ int main () {
     }
     for(int i = 1; i < m; i++) {
         if(!np[i] && !np[i + 1]) br++;
-        cout << i << " " << br << "\n";
+        ///cout << i << " " << br << "\n";
     }
     cout << br;
 
