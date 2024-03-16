@@ -2,7 +2,7 @@
 using namespace std;
 
 int main () {
-    long long n, m, sum = 0, nmsum = 10000000000, hi;
+    long long n, m, sum = 0, nmsum = 100000000000, hi = 0;
     cin >> n >> m;
     int nc[n];
     for(int i = 0; i < n; i++) cin >> nc[i];
@@ -16,7 +16,7 @@ int main () {
             sum -= nc[i - m + 1];
         }
     }
-    cout << hi - 1;
+    cout << hi;
 
     return 0;
 }
