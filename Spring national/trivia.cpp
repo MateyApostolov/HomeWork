@@ -1,12 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int trivia (int n) {
-    int i, sum = 0;
-    for(i = 1; i * i <= n; i++) {
-        if(n % i == 0) sum += i + n / i;
-    }
-    if(i * i == n) sum -= i;
+double trivia (int n) {
+    int i, sum = 1;
+    for(i = 2; i * i < n; i++) if(n % i == 0) sum += i + n / i;
+    if(i * i == n) sum += i;
     return 1.0 * sum / n;
 }
 
@@ -20,7 +18,7 @@ int main () {
             maxtr = tr;
             ngi = i;
         }
-        if(mintr > tr) {
+        if(mintr >= tr) {
             mintr = tr;
             nmi = i;
         }
