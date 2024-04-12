@@ -2,7 +2,7 @@
 using namespace std;
 
 const int maxk = 3001, maxn = 2001;
-int k[maxk], izt[maxn];
+long long k[maxk], izt[maxn];
 
 int main () {
     long long n, m, kas, sum = 0;
