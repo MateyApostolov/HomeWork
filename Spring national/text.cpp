@@ -6,6 +6,8 @@ int main () {
     string s, zc = "", zs = "", izc = "", izs = "";
     int brc = 0, brs = 0;
     cin >> ends >> s;
+    if(isdigit(s[0])) zc = s[0];
+    if(islower(s[0])) zs = s[0];
     for(int i = 1; i < s.size() - 1; i++) {
         if(isdigit(s[i]) && isdigit(s[i - 1])) {
             zc += s[i];
@@ -17,6 +19,8 @@ int main () {
             zc = "";
             if(isdigit(s[i])) zc += s[i];
         }
+
+
         if(islower(s[i]) && islower(s[i - 1])) {
             zs += s[i];
         } else {

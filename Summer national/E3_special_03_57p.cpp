@@ -3,7 +3,8 @@ using namespace std;
 
 int brd (long long a) {
     int d = 0, i;
-    for(i = 1; i * i < a; i++) {
+    double koren = sqrt(a);
+    for(i = 1; i < koren; i++) {
         if(a % i == 0) d += 2;
     }
     if(i * i == a) d++;
@@ -21,7 +22,6 @@ int sumc (long long a) {
 
 int main () {
     long long n, a, pr, bro = 0, brprime = 0, brdel, prbrdel, sum, prsum;
-    vector <long long> otp;
     cin >> n;
     cin >> a;
     pr = a;
@@ -41,7 +41,7 @@ int main () {
             prsum = sum;
         }
     }
-    cout << bro << " " << brprime;;
+    cout << bro << " " << brprime;
     return 0;
 }
 
