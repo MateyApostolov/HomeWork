@@ -6,7 +6,6 @@ int main () {
     cin >> n;
     int nc;
     vector <int> s;
-    cout << " ";
     for(int i = 0; i < n; i++) {
         cin >> nc;
         s.push_back(nc);
