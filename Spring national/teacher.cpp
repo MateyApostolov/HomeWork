@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-const int maxoc = 5;
-int broc[maxoc];
+const int maxoc = 6;
+int ngbroc[maxoc], segoc[maxoc];
 
 int main () {
     int n, a, b, maxbr = 0, hi, pra, prb;
@@ -10,28 +10,34 @@ int main () {
     cin >> a >> b;
     pra = a;
     prb = b;
-    broc[a]++;
-    broc[b]++;
+    segoc[a]++;
+    segoc[b]++;
     for(int i = 1; i < n; i ++) {
         cin >> a >> b;
         if(a == pra || a == prb) {
-            broc[a - 1]++;
+            segoc[a]++;
         } else {
-            broc[a - 1] = 0;
+            ngbroc[a] = max(segoc[a], ngbroc[a]);
+            if(segoc[a] == 0) segoc[a]++;
+            else segoc[a] = 0;
         }
         if(b == pra || b == prb) {
-            broc[b - 1]++;
+            segoc[b]++;
         } else {
-            broc[b - 1] = 0;
+            ngbroc[b] = max(segoc[b], ngbroc[b]);
+            if(segoc[b] == 0) segoc[b]++;
+            else segoc[b] = 0;
         }
         pra = a;
         prb = b;
 
     }
-    for(int i = 0; i < maxoc; i++) {
-        if(maxbr < broc[i]) {
-            maxbr = broc[i];
-            hi = i + 1;
+    ngbroc[a] = max(segoc[a], ngbroc[a]);
+    ngbroc[b] = max(segoc[b], ngbroc[b]);
+    for(int i = 1; i < maxoc; i++) {
+        if(maxbr < ngbroc[i]) {
+            maxbr = ngbroc[i];
+            hi = i;
         }
     }
     cout << maxbr << " " << hi;
