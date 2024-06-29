@@ -12,7 +12,7 @@ int main () {
     prb = b;
     segoc[a]++;
     segoc[b]++;
-    for(int i = 1; i < n; i ++) {
+    for(int i = 1; i < n; i++) {
         cin >> a >> b;
         if(a == pra || a == prb) {
             segoc[a]++;
