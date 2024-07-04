@@ -13,56 +13,20 @@ string nextdate (string d) {
     M = (d[2] - '0') * 10 + (d[3] - '0');
     Y = (d[4] - '0') * 1000 + (d[5] - '0') * 100 + (d[6] - '0') * 10 + (d[7] - '0');
     D++;
-    if(D == 32 && M == 1) {
-        D = 1;
-        M++;
-    }
     if(D == 29 && M == 2 && !iswis(Y)) {
         D = 1;
         M++;
-    }
-    if(D == 30 && M == 2 && iswis(Y)) {
+    } else if(D == 30 && M == 2 && iswis(Y)) {
+        D = 1;
+        M++;
+    } else if(D == 32 && (M == 1 || M == 3 || M == 5 || M == 7 || M == 8 || M == 10 || M == 12)) {
+        D = 1;
+        M++;
+    } else if(D == 31 && (M == 4 || M == 6 || M == 9 || M == 11)) {
         D = 1;
         M++;
     }
-    if(D == 32 && M == 3) {
-        D = 1;
-        M++;
-    }
-    if(D == 31 && M == 4) {
-        D = 1;
-        M++;
-    }
-    if(D == 32 && M == 5) {
-        D = 1;
-        M++;
-    }
-    if(D == 31 && M == 6) {
-        D = 1;
-        M++;
-    }
-    if(D == 32 && M == 7) {
-        D = 1;
-        M++;
-    }
-    if(D == 32 && M == 8) {
-        D = 1;
-        M++;
-    }
-    if(D == 31 && M == 9) {
-        D = 1;
-        M++;
-    }
-    if(D == 32 && M == 10) {
-        D = 1;
-        M++;
-    }
-    if(D == 31 && M == 11) {
-        D = 1;
-        M++;
-    }
-    if(D == 32 && M == 12) {
-        D = 1;
+    if(M == 13) {
         M = 1;
         Y++;
     }
@@ -85,9 +49,10 @@ bool isvalid (string d) {
     Y = (d[4] - '0') * 1000 + (d[5] - '0') * 100 + (d[6] - '0') * 10 + (d[7] - '0');
     if(D == 0 || M == 0) return false;
     if(M > 12) return false;
-    if(D >= 32) return false;
+    if(D > 31) return false;
     if(D == 29 && M == 2 && !iswis(Y)) return false;
-    if(D == 30 && M == 2 && iswis(Y)) return false;
+    if(D == 30 && M == 2) return false;
+    if(D == 31 && M == 2) return false;
     if(D == 31 && M == 4) return false;
     if(D == 31 && M == 6) return false;
     if(D == 31 && M == 9) return false;
@@ -101,9 +66,8 @@ bool isvalid (string d) {
 int main () {
     string d1, d2;
     cin >> d1 >> d2;
-    long long br = 0;
-    if(isvalid(d1)) br++;
-    while(nextdate(d1) != d2) {
+    int br = 0;
+    while(d1 != d2) {
         if(isvalid(d1)) br++;
         d1 = nextdate(d1);
         ///cout << d1 << "\n";
