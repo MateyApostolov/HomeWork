@@ -11,7 +11,7 @@ int main () {
     for(int i = 0; i < k; i++) cin >> z[i].first >> z[i].second;
     for(int i = k - 1; i >= 0; i--) {
         ///for(int i = n - 1; i >= 0; i--) cout << wh[i];
-        cout << '\n';
+        ///cout << '\n';
         if(wh[h] != '?' && wh[h] != z[i].second) {
             cout << '!';
             return 0;
