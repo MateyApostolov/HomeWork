@@ -11,7 +11,7 @@ int main () {
     }
     for(int i = 0; i < n; i++) {
         if(nc[i] != maxc) {
-            sum += nc[i];
+            sum += maxc - nc[i];
             br++;
         }
     }

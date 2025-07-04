@@ -2,19 +2,26 @@
 using namespace std;
 
 int main () {
-    int n, k, num, h1 = -1, brc = 0;
+    long long n, k, num, brc, ans = 0, brk = 0, h1;
     cin >> n >> k;
     num = k;
     while(num > 0) {
-        brc++;
+        brk++;
         if(num < 10) h1 = num;
         num /= 10;
     }
-    for(int i = 0; i < brc; i++) {
-        num *= 10;
-        num += h1;
+    for(int i = 1; i <= 9; i++) {
+        if(i == h1) break;
+        num = 0;
+        brc = 0;
+        while(num < n) {
+            num *= 10;
+            num += i;
+            if(num > n) break;
+            brc++;
+        }
+        ans += brc;
     }
-    if(num <= k) cout << brc * h1;
-    else cout << brc * h1 - 1;
+    cout << ans + brk;
     return 0;
 }
