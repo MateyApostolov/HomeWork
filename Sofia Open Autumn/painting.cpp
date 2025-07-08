@@ -4,8 +4,6 @@ using namespace std;
 int main () {
     int w, h, l, k, br1 = 0, d[3];
     cin >> w >> h >> l >> k;
-    cout << k;
-    return 0;
     if(w == 1) br1++;
     if(h == 1) br1++;
     if(l == 1) br1++;

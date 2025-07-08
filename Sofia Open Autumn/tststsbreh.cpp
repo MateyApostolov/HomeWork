@@ -17,6 +17,7 @@ int main () {
                 ts = 0;
             }
         }
+        if(ts >= 4) t = false;
         if(t) a++;
         else sh++;
     }
